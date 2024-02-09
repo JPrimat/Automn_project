@@ -1,0 +1,42 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Smartphone",
+        "brand": "Apple",
+        "price": 999.99,
+        "in_stock": true
+      },
+      {
+        "id": 2,
+        "name": "Laptop",
+        "brand": "Dell",
+        "price": 1299.99,
+        "in_stock": false
+      },
+      {
+        "id": 3,
+        "name": "Headphones",
+        "brand": "Sony",
+        "price": 199.99,
+        "in_stock": true
+      }
+    ],
+    "customers": [
+      {
+        "id": 101,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "age": 30,
+        "loyalty_points": 500
+      },
+      {
+        "id": 102,
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "age": 25,
+        "loyalty_points": 750
+      }
+    ]
+  }
+  
