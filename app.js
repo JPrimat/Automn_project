@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const dbService = require('./dbService');
-const conversionService = require('./xmlService');
+const conversionService = require('./conversionService');
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
@@ -24,7 +24,7 @@ app.use('/upload', upload.single('file'), async (req, res, next) => {
         // Supprime le fichier temporaire
         fs.unlinkSync(req.file.path);
 
-        res.json({ message: 'Fichier téléchargé avec succès.', fileId: fileId });
+        res.json({ message: 'Fichier téléchargé avec succès.', fileId: fileId, fileName: file.originalname });
     } catch (error) {
         console.error('Erreur lors du traitement du fichier :', error);
         res.status(500).json({ error: error.message });
@@ -39,6 +39,17 @@ app.get('/files/:fileId', async (req, res) => {
         res.json(fileData);
     } catch (error) {
         console.error('Erreur lors de la récupération du fichier :', error);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Endpoint GET pour récupérer tous les fichiers
+app.get('/files', async (req, res) => {
+    try{
+        const filesData = await dbService.getAllFiles();
+        res.json(filesData);
+    } catch (error) {
+        console.error('Erreur lors de la récupération des fichiers :', error);
         res.status(500).json({ error: error.message });
     }
 });

@@ -3,8 +3,18 @@
 const mongoose = require('mongoose');
 
 // Connexion à la base de données MongoDB
-mongoose.connect('mongodb://localhost:27017/filesDB', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
+const dbConnect = async () => {
+    try{
+        await mongoose.connect('mongodb://localhost:27017/fileDobotStorage', { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log('Connection established with the database.')
+    }catch(error) {
+        console.error(`Connection error: ${error.stack}`);
+    }
+}
+
+dbConnect().catch(error => console.error(error));
+// mongoose.connect('mongodb://localhost:27017/fileDobotStorage', { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
 
 // Définition du schéma pour les fichiers
 const fileSchema = new mongoose.Schema({
@@ -36,6 +46,16 @@ const getFile = async (fileId) => {
     }
 };
 
+// Fonction pour récupérer tous les fichier de la base de données
+const getAllFiles = async () => {
+    try{
+        const files = await File.find();
+        return files;
+    } catch (error) {
+        throw new Error('Erreur lors de la récupération des fichiers depuis la base de données.');
+    }
+}
+
 // Fonction pour mettre à jour un fichier dans la base de données
 const updateFile = async (fileId, newData) => {
     try {
@@ -54,4 +74,4 @@ const deleteFile = async (fileId) => {
     }
 };
 
-module.exports = { saveFile, getFile, updateFile, deleteFile };
+module.exports = { saveFile, getFile, getAllFiles, updateFile, deleteFile };
