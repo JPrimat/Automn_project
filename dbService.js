@@ -13,8 +13,6 @@ const dbConnect = async () => {
 }
 
 dbConnect().catch(error => console.error(error));
-// mongoose.connect('mongodb://localhost:27017/fileDobotStorage', { useNewUrlParser: true, useUnifiedTopology: true });
-// const db = mongoose.connection;
 
 // Définition du schéma pour les fichiers
 const fileSchema = new mongoose.Schema({

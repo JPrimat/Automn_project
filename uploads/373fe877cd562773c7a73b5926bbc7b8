@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_n9PHgGNkEe6DjYUi9-Aayw" name="UPS">
+  <eAnnotations xmi:id="_n9PHgWNkEe6DjYUi9-Aayw" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_n9PHgmNkEe6DjYUi9-Aayw" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_n9PHg2NkEe6DjYUi9-Aayw" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Package" xmi:id="_n9PHhGNkEe6DjYUi9-Aayw" name="Model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_n9PHhWNkEe6DjYUi9-Aayw" name="Physical">
+      <packagedElement xmi:type="uml:Package" xmi:id="_n9PHhmNkEe6DjYUi9-Aayw" name="1-Physical Architecture ">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHh2NkEe6DjYUi9-Aayw" name="patate" classifier="_n9PHumNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHiGNkEe6DjYUi9-Aayw" definingFeature="_n9PHvGNkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHiWNkEe6DjYUi9-Aayw" symbol="456"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHimNkEe6DjYUi9-Aayw" name="Enzo_style" classifier="_n9PHumNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHi2NkEe6DjYUi9-Aayw" definingFeature="_n9PHvGNkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHjGNkEe6DjYUi9-Aayw" symbol="345578976643"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHjWNkEe6DjYUi9-Aayw" name="Instance" classifier="_n9PHumNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHjmNkEe6DjYUi9-Aayw" definingFeature="_n9PHvWNkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHj2NkEe6DjYUi9-Aayw" symbol="1111"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n9PHkGNkEe6DjYUi9-Aayw" name="InformationFlow" informationSource="_n9PHm2NkEe6DjYUi9-Aayw" informationTarget="_n9PHmGNkEe6DjYUi9-Aayw"/>
+        <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n9PHkWNkEe6DjYUi9-Aayw" name="InformationFlow" informationSource="_n9PHoGNkEe6DjYUi9-Aayw" informationTarget="_n9PHmGNkEe6DjYUi9-Aayw"/>
+        <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n9PHkmNkEe6DjYUi9-Aayw" name="InformationFlow" informationSource="_n9PHmGNkEe6DjYUi9-Aayw" informationTarget="_n9PHlGNkEe6DjYUi9-Aayw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_n9PHk2NkEe6DjYUi9-Aayw" name="2-Component Library">
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHlGNkEe6DjYUi9-Aayw" name="TOULOUSE" classifier="_n9PHqWNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHlWNkEe6DjYUi9-Aayw" definingFeature="_n9PHrWNkEe6DjYUi9-Aayw"/>
+          <slot xmi:id="_n9PHlmNkEe6DjYUi9-Aayw" definingFeature="_n9PHrmNkEe6DjYUi9-Aayw"/>
+          <slot xmi:id="_n9PHl2NkEe6DjYUi9-Aayw" definingFeature="_n9PHr2NkEe6DjYUi9-Aayw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHmGNkEe6DjYUi9-Aayw" name="A1" classifier="_n9PHsmNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHmWNkEe6DjYUi9-Aayw" definingFeature="_n9PHtmNkEe6DjYUi9-Aayw"/>
+          <slot xmi:id="_n9PHmmNkEe6DjYUi9-Aayw" definingFeature="_n9PHt2NkEe6DjYUi9-Aayw"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHm2NkEe6DjYUi9-Aayw" name="DTH770" classifier="_n9PHumNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHnGNkEe6DjYUi9-Aayw" definingFeature="_n9PHu2NkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHnWNkEe6DjYUi9-Aayw" symbol="2"/>
+          </slot>
+          <slot xmi:id="_n9PHnmNkEe6DjYUi9-Aayw" definingFeature="_n9PHvGNkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHn2NkEe6DjYUi9-Aayw" symbol="3636"/>
+          </slot>
+        </packagedElement>
+        <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_n9PHoGNkEe6DjYUi9-Aayw" name="DTH771" classifier="_n9PHumNkEe6DjYUi9-Aayw">
+          <slot xmi:id="_n9PHoWNkEe6DjYUi9-Aayw" definingFeature="_n9PHu2NkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHomNkEe6DjYUi9-Aayw" symbol="43"/>
+          </slot>
+          <slot xmi:id="_n9PHo2NkEe6DjYUi9-Aayw" definingFeature="_n9PHvGNkEe6DjYUi9-Aayw">
+            <value xmi:type="uml:Expression" xmi:id="_n9PHpGNkEe6DjYUi9-Aayw" symbol="12"/>
+          </slot>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n9PHpWNkEe6DjYUi9-Aayw" name="InformationFlow" informationSource="_n9PHh2NkEe6DjYUi9-Aayw" informationTarget="_n9PHmGNkEe6DjYUi9-Aayw"/>
+      <packagedElement xmi:type="uml:InformationFlow" xmi:id="_n9PHpmNkEe6DjYUi9-Aayw" name="InformationFlow" informationSource="_n9PHimNkEe6DjYUi9-Aayw" informationTarget="_n9PHmGNkEe6DjYUi9-Aayw"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_n9PHp2NkEe6DjYUi9-Aayw" name="MetaModel">
+    <packagedElement xmi:type="uml:Package" xmi:id="_n9PHqGNkEe6DjYUi9-Aayw" name="Concepts">
+      <packagedElement xmi:type="uml:Class" xmi:id="_n9PHqWNkEe6DjYUi9-Aayw" name="Site">
+        <ownedAttribute xmi:id="_n9PHqmNkEe6DjYUi9-Aayw" name="hangar" visibility="public" type="_n9PHsmNkEe6DjYUi9-Aayw" isUnique="false" aggregation="composite" association="_n9PHsGNkEe6DjYUi9-Aayw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n9PHq2NkEe6DjYUi9-Aayw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n9PHrGNkEe6DjYUi9-Aayw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHrWNkEe6DjYUi9-Aayw" name="CO2_Emission" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHrmNkEe6DjYUi9-Aayw" name="Annual_Cost" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHr2NkEe6DjYUi9-Aayw" name="Subvention" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_n9PHsGNkEe6DjYUi9-Aayw" memberEnd="_n9PHqmNkEe6DjYUi9-Aayw _n9PHsWNkEe6DjYUi9-Aayw">
+        <ownedEnd xmi:id="_n9PHsWNkEe6DjYUi9-Aayw" visibility="public" type="_n9PHqWNkEe6DjYUi9-Aayw" isUnique="false" association="_n9PHsGNkEe6DjYUi9-Aayw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_n9PHsmNkEe6DjYUi9-Aayw" name="Hangar">
+        <ownedAttribute xmi:id="_n9PHs2NkEe6DjYUi9-Aayw" name="station" visibility="public" type="_n9PHumNkEe6DjYUi9-Aayw" isUnique="false" aggregation="composite" association="_n9PHuGNkEe6DjYUi9-Aayw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n9PHtGNkEe6DjYUi9-Aayw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n9PHtWNkEe6DjYUi9-Aayw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHtmNkEe6DjYUi9-Aayw" name="CO2_Emission" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHt2NkEe6DjYUi9-Aayw" name="Annual_Cost" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_n9PHuGNkEe6DjYUi9-Aayw" memberEnd="_n9PHs2NkEe6DjYUi9-Aayw _n9PHuWNkEe6DjYUi9-Aayw">
+        <ownedEnd xmi:id="_n9PHuWNkEe6DjYUi9-Aayw" visibility="public" type="_n9PHsmNkEe6DjYUi9-Aayw" isUnique="false" association="_n9PHuGNkEe6DjYUi9-Aayw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_n9PHumNkEe6DjYUi9-Aayw" name="Station">
+        <ownedAttribute xmi:id="_n9PHu2NkEe6DjYUi9-Aayw" name="CO2_Emission" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHvGNkEe6DjYUi9-Aayw" name="Annual_Cost" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_n9PHvWNkEe6DjYUi9-Aayw" name="NRC" visibility="public" isUnique="false">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EFloat"/>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <profileApplication xmi:id="_n92LgGNkEe6DjYUi9-Aayw">
+    <eAnnotations xmi:id="_n95O0GNkEe6DjYUi9-Aayw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="sysml.profile.xmi#_n9gNRGNkEe6DjYUi9-Aayw"/>
+    </eAnnotations>
+    <appliedProfile href="sysml.profile.xmi#_n9foHWNkEe6DjYUi9-Aayw"/>
+  </profileApplication>
+</uml:Model>

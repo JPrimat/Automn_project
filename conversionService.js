@@ -1,30 +1,23 @@
-// conversionService.js - Microservice pour la conversion des fichiers XMI/XML en JSON
+const parseString = require('xml2js').parseString;
+const fs = require('fs');
 
-const express = require('express');
-const xml2js = require('xml2js');
-
-const router = express.Router();
-
-// Middleware pour la conversion des fichiers XMI/XML en JSON
-router.use(async (req, res, next) => {
-    try {
-        // Vérifie si le fichier est un XMI/XML
-        if (!req.file || !req.file.originalname.match(/\.(xmi|xml)$/i)) {
-            throw new Error('Le fichier doit être un XMI ou un XML.');
-        }
-
-        // Convertit le contenu du fichier en JSON en ne récupérant que les balises "packagedElement"
-        xml2js.parseString(req.file.buffer, { explicitArray: false }, (err, result) => {
-            if (err) {
-                throw new Error('Erreur lors de la conversion du fichier XMI/XML en JSON.');
+const convert = async (file, callback) => {
+    try{
+        const fileContent = fs.readFileSync(file.path, 'utf-8');
+        parseString(fileContent, (xmlErr, result) => {
+            if (xmlErr) {
+                callback(xmlErr, null); // Retourner une erreur si la conversion a échoué
+            } else {
+                // Filtrer et convertir seulement les balises "packagedElement"
+                const packagedElements = result['xmi:XMI']['uml:Model'][0]?.packagedElement || result['uml:Model']?.packagedElement;
+                const jsonFile = JSON.stringify({ packagedElement: packagedElements }, null, 2);
+                callback(null, jsonFile); // Retourner le fichier JSON converti
             }
-            const packagedElements = result.packagedElement;
-            res.json(packagedElements);
         });
-    } catch (error) {
-        console.error('Erreur lors de la conversion du fichier XMI/XML en JSON :', error);
-        res.status(500).json({ error: error.message });
+    } catch (error){
+        console.error('Error during the convertion', error);
+        callback(null, error);
     }
-});
+};
 
-module.exports = router;
+module.exports = { convert };

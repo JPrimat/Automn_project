@@ -8,26 +8,34 @@ const app = express();
 const upload = multer({ dest: 'uploads/' });
 
 // Middleware pour traiter les fichiers envoyés via POST
-app.use('/upload', upload.single('file'), async (req, res, next) => {
+app.use('/upload', upload.single('file'), async (req, res) => {
     try {
-        // Vérifie si un fichier a été envoyé
-        if (!req.file) {
-            throw new Error('Aucun fichier n\'a été téléchargé.');
+        if(!req.file) {
+            throw new Error('No file uploaded.');
         }
-
-        // Lit le contenu du fichier
-        const fileContent = fs.readFileSync(req.file.path, 'utf-8');
-
-        // Stocke le fichier dans la base de données
-        const fileId = await dbService.saveFile(req.file.originalname, fileContent);
-
-        // Supprime le fichier temporaire
-        fs.unlinkSync(req.file.path);
-
-        res.json({ message: 'Fichier téléchargé avec succès.', fileId: fileId, fileName: file.originalname });
+        if (req.file.originalname.endsWith('.json')) {
+            const fileContent = fs.readFileSync(req.file.path, 'utf-8');
+            // Stocke le fichier dans la base de données
+            const fileId = await dbService.saveFile(req.file.originalname, fileContent);
+            // Supprime le fichier temporaire
+            fs.unlinkSync(req.file.path);
+            res.json({ message: 'Fichier téléchargé avec succès.', fileId: fileId, fileName: file.originalname });
+        } else if (req.file.originalname.endsWith('.xml') || req.file.originalname.endsWith('.xmi')) { 
+            conversionService.convert(req.file, async (err, result) => {
+                if (err) {
+                    res.status(400).json({ error: err.message, errorCallback: result });
+                } else {
+                    const fileId = await dbService.saveFile(req.file.originalname, result);
+                    res.json({message : 'Fichier téléchargé avec succès.', fileId: fileId, fileName: req.file.originalname});
+                }
+            });
+        } else {
+            // Si ce n'est ni un JSON ni un XML/XMI, retourne une erreur
+            res.status(400).json({ error: 'Format de fichier non pris en charge.' });
+        }
     } catch (error) {
-        console.error('Erreur lors du traitement du fichier :', error);
-        res.status(500).json({ error: error.message });
+        console.error('File processing error : ', error);
+        res.status(500).json({error : error.message});
     }
 });
 
@@ -79,9 +87,6 @@ app.delete('/files/:fileId', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
-// Middleware pour la conversion des fichiers XMI/XML en JSON
-app.use('/convert', conversionService);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
