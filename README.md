@@ -39,7 +39,7 @@ Choisissez la méthode qui vous convient le mieux en fonction de vos préférenc
 1. N'oubliez pas la commande "npm init -y" (si vous n'avez pas de package.json) et "node app.js"
 
 ## axios
-```ruby
+```js
 const axios = require('axios');
 
 axios.get('http://localhost:3000/api/data')
@@ -52,24 +52,28 @@ axios.get('http://localhost:3000/api/data')
 ```
 
 ## fetch
-```ruby
+```js
 fetch('http://localhost:3000/api/data')
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
 ```
 
+```ruby
+```
 node .\dbService.js
 
-Service de Conversion
+## Service de Conversion
 Le fichier conversionService.js fournit un service permettant de convertir des fichiers XML/XMI en format JSON. Il est principalement utilisé dans le contexte d'une API Node.js pour convertir les fichiers téléchargés avant de les stocker ou de les manipuler ultérieurement.
 
-Fonctionnalités
-Conversion de Fichiers : Le service utilise le module xml2js pour convertir les fichiers XML/XMI en objets JavaScript.
-Filtrage : Seules les balises <packagedElement> sont extraites du fichier XML/XMI.
-Gestion d'Erreurs : Le service gère les erreurs de conversion et retourne une erreur en cas de problème.
-Utilisation Simple : Il expose une fonction convert qui prend en charge la conversion et le retour du résultat via un callback.
+## Fonctionnalités
+1. **Conversion de Fichiers** : Le service utilise le module xml2js pour convertir les fichiers XML/XMI en objets JavaScript.
+2. **iltrage** : Seules les balises <packagedElement> sont extraites du fichier XML/XMI.
+3. **Gestion d'Erreurs** : Le service gère les erreurs de conversion et retourne une erreur en cas de problème.
+4. **Utilisation Simple** : Il expose une fonction convert qui prend en charge la conversion et le retour du résultat via un callback.
 
+
+```js
 const conversionService = require('./conversionService');
 
 conversionService.convert(file, (err, result) => {
@@ -79,15 +83,13 @@ conversionService.convert(file, (err, result) => {
         console.log('Conversion réussie ! Résultat en JSON :\n', result);
     }
 });
+```
 
 Ce service facilite grandement le processus de conversion des fichiers XML/XMI en format JSON, ce qui est particulièrement utile dans les applications nécessitant cette transformation pour le stockage ou le traitement des données.
 
-
-
-
 Voici une partie du fichier README.md expliquant l'utilisation de l'API CRUD en relation avec dbService (mongoose) et conversionService.js :
 
-API CRUD
+## API CRUD
 L'API CRUD fournit des endpoints pour la création, la lecture, la mise à jour et la suppression de fichiers dans une base de données MongoDB. Elle prend également en charge la conversion des fichiers XML/XMI en format JSON avant de les stocker.
 
 Endpoints
@@ -105,19 +107,12 @@ Utilisation
 Téléchargement d'un fichier :
 
 Pour télécharger un fichier, envoyez une requête POST à l'endpoint /upload avec le fichier en tant que payload. L'API détecte automatiquement le format du fichier et le traite en conséquence.
-
 Récupération des données :
-
 Pour récupérer les données d'un fichier spécifique, envoyez une requête GET à l'endpoint /files/:fileId en remplaçant :fileId par l'identifiant du fichier.
-
 Mise à jour des données :
-
 Pour mettre à jour les données d'un fichier existant, envoyez une requête PUT à l'endpoint /files/:fileId avec les nouvelles données en tant que payload.
-
 Suppression d'un fichier :
-
 Pour supprimer un fichier de la base de données, envoyez une requête DELETE à l'endpoint /files/:fileId en remplaçant :fileId par l'identifiant du fichier à supprimer.
-
 Exemple d'utilisation
 
 
@@ -158,6 +153,7 @@ updateFile(fileId, newData) : Cette fonction permet de mettre à jour les donné
 deleteFile(fileId) : Cette fonction permet de supprimer un fichier de la base de données à partir de son identifiant (fileId).
 
 Ces fonctions fournissent un ensemble complet de fonctionnalités pour la gestion des fichiers dans la base de données MongoDB.
+```ruby 
 // Exemple d'utilisation de saveFile
 const fileId = await saveFile('example.json', '{"key": "value"}');
 
@@ -172,3 +168,4 @@ await updateFile(fileId, { "key": "updated value" });
 
 // Exemple d'utilisation de deleteFile
 await deleteFile(fileId);
+```

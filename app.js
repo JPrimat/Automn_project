@@ -25,8 +25,11 @@ app.use('/upload', upload.single('file'), async (req, res) => {
                 if (err) {
                     res.status(400).json({ error: err.message, errorCallback: result });
                 } else {
-                    const fileId = await dbService.saveFile(req.file.originalname, result);
-                    res.json({message : 'Fichier téléchargé avec succès.', fileId: fileId, fileName: req.file.originalname});
+                    //Remplace le fichier par l'extension .json 
+                    const fileName = req.file.originalname.replace(/\.[^.]+$/, '.json');
+                    const fileId = await dbService.saveFile(fileName, result);
+
+                    res.json({message : 'Fichier téléchargé avec succès.', fileId: fileId, fileName: fileName});
                 }
             });
         } else {
