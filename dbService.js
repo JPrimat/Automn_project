@@ -17,16 +17,18 @@ dbConnect().catch(error => console.error(error));
 // Définition du schéma pour les fichiers
 const fileSchema = new mongoose.Schema({
     name: String,
-    content: String
+    content: String,
+    extension: String,
+    date: String
 });
 
 // Création du modèle basé sur le schéma
 const File = mongoose.model('File', fileSchema);
 
 // Fonction pour sauvegarder un fichier dans la base de données
-const saveFile = async (fileName, fileContent) => {
+const saveFile = async (fileName, fileContent, extension, datetime) => {
     try {
-        const newFile = new File({ name: fileName, content: fileContent });
+        const newFile = new File({ name: fileName, content: fileContent, extension: extension, date: datetime });
         const savedFile = await newFile.save();
         return savedFile._id;
     } catch (error) {

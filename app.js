@@ -7,16 +7,22 @@ const conversionService = require('./conversionService');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
+const cors = require("cors");
+app.use(cors());
+
+
 // Middleware pour traiter les fichiers envoyés via POST
 app.use('/upload', upload.single('file'), async (req, res) => {
+    var datetime = new Date();
     try {
+
         if(!req.file) {
             throw new Error('No file uploaded.');
         }
         if (req.file.originalname.endsWith('.json')) {
             const fileContent = fs.readFileSync(req.file.path, 'utf-8');
             // Stocke le fichier dans la base de données
-            const fileId = await dbService.saveFile(req.file.originalname, fileContent);
+            const fileId = await dbService.saveFile(req.file.originalname, fileContent, req.file.originalname.split('.').pop(), datetime.toLocaleString().slice(0,10));
             // Supprime le fichier temporaire
             fs.unlinkSync(req.file.path);
             res.json({ message: 'Fichier téléchargé avec succès.', fileId: fileId, fileName: file.originalname });
@@ -27,8 +33,8 @@ app.use('/upload', upload.single('file'), async (req, res) => {
                 } else {
                     //Remplace le fichier par l'extension .json 
                     const fileName = req.file.originalname.replace(/\.[^.]+$/, '.json');
-                    const fileId = await dbService.saveFile(fileName, result);
-
+                    const fileId = await dbService.saveFile(fileName, result, fileName.split('.').pop(), datetime.toLocaleString().slice(0,10));
+                    
                     res.json({message : 'Fichier téléchargé avec succès.', fileId: fileId, fileName: fileName});
                 }
             });
